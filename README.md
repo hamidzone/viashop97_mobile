@@ -244,6 +244,131 @@ Tombol ini serupa dengan tombol pertama, namun untuk "Tambah Produk" dengan ikon
               ),
             ),
 ```
-Mirip dengan dua tombol sebelumnya, tombol ini digunakan untuk "Logout" dengan ikon logout dan warna latar merah.
 
-Dengan ini, seluruh kode telah dijelaskan secara menyeluruh!
+Tugas Individu 8
+Berikut adalah kode Flutter berdasarkan pertanyaan-pertanyaan yang Anda ajukan, beserta implementasi yang relevan:
+
+### 1. **Penggunaan `const` di Flutter**
+
+   ```dart
+   // Menggunakan const untuk widget yang tidak berubah
+   const Text('Hello, Flutter!'),
+   
+   // Tidak menggunakan const pada widget yang memerlukan perubahan
+   Text('Dynamic Text: $dynamicValue'),
+   ```
+
+   - Di sini, `Text('Hello, Flutter!')` menggunakan `const` karena teksnya tidak berubah. Sementara `Text('Dynamic Text: $dynamicValue')` tidak menggunakan `const` karena teksnya bergantung pada nilai dinamis.
+
+### 2. **Implementasi `Column` dan `Row` di Flutter**
+
+   **Contoh menggunakan `Column`:**
+   ```dart
+   Column(
+     mainAxisAlignment: MainAxisAlignment.center,
+     children: <Widget>[
+       Text('Item 1'),
+       Text('Item 2'),
+       Text('Item 3'),
+     ],
+   )
+   ```
+
+   **Contoh menggunakan `Row`:**
+   ```dart
+   Row(
+     mainAxisAlignment: MainAxisAlignment.center,
+     children: <Widget>[
+       Icon(Icons.home),
+       Icon(Icons.search),
+       Icon(Icons.settings),
+     ],
+   )
+   ```
+
+   Di sini, `Column` digunakan untuk menampilkan teks secara vertikal, sedangkan `Row` digunakan untuk menampilkan ikon secara horizontal.
+
+### 3. **Elemen Input yang Digunakan dalam Form**
+
+   **Contoh penggunaan `TextFormField`:**
+   ```dart
+   TextFormField(
+     decoration: InputDecoration(
+       labelText: 'Nama Produk',
+       border: OutlineInputBorder(),
+     ),
+   )
+   ```
+
+   **Elemen input lainnya yang dapat digunakan:**
+   - **Checkbox**:
+     ```dart
+     Checkbox(
+       value: isChecked,
+       onChanged: (bool? value) {
+         setState(() {
+           isChecked = value!;
+         });
+       },
+     )
+     ```
+   - **Radio**:
+     ```dart
+     Radio(
+       value: 'option1',
+       groupValue: selectedOption,
+       onChanged: (value) {
+         setState(() {
+           selectedOption = value!;
+         });
+       },
+     )
+     ```
+
+### 4. **Mengatur Tema dalam Aplikasi Flutter**
+
+   **Contoh pengaturan tema:**
+   ```dart
+   MaterialApp(
+     theme: ThemeData(
+       primaryColor: Colors.blue,
+       accentColor: Colors.amber,
+       textTheme: TextTheme(
+         bodyText1: TextStyle(color: Colors.black),
+         bodyText2: TextStyle(color: Colors.blue),
+       ),
+     ),
+     home: HomePage(),
+   );
+   ```
+
+   - Di sini, saya mengatur warna utama dan aksen, serta gaya teks untuk seluruh aplikasi menggunakan `ThemeData`.
+
+### 5. **Menangani Navigasi antar Halaman di Flutter**
+
+   **Contoh navigasi menggunakan `Navigator.push`:**
+   ```dart
+   Navigator.push(
+     context,
+     MaterialPageRoute(builder: (context) => SecondPage()),
+   );
+   ```
+
+   **Contoh navigasi dengan animasi menggunakan `PageRouteBuilder`:**
+   ```dart
+   Navigator.push(
+     context,
+     PageRouteBuilder(
+       pageBuilder: (context, animation, secondaryAnimation) => FadeTransition(
+         opacity: animation,
+         child: NewPage(),
+       ),
+     ),
+   );
+   ```
+
+   - Di sini, navigasi antar halaman dilakukan dengan `MaterialPageRoute` untuk halaman kedua, dan `PageRouteBuilder` untuk navigasi dengan efek transisi.
+
+---
+
+Kode-kode di atas dapat langsung digunakan dalam aplikasi Flutter Anda untuk menangani penggunaan `const`, layout menggunakan `Column` dan `Row`, elemen input, pengaturan tema, dan navigasi antar halaman. Semoga membantu!
